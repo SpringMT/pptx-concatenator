@@ -40,6 +40,9 @@ dev = [
 Homepage = "https://github.com/SpringMT/pptx-concatenator"
 Repository = "https://github.com/SpringMT/pptx-concatenator"
 
+[project.scripts]
+pptx-concat = "pptx_concatenator.cli:main"
+
 [tool.setuptools.packages.find]
 include = ["pptx_concatenator*"]
 
