@@ -1,0 +1,14 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include pptx_concatenator *.py
+prune tests
+prune .github
+prune htmlcov
+prune .pytest_cache
+exclude .gitignore
+exclude Makefile
+exclude .coverage
+exclude .coveragerc
+global-exclude *.pyc
+global-exclude __pycache__

@@ -25,7 +25,7 @@ classifiers = [
 ]
 dependencies = [
     "python-pptx>=0.6.21",
-    "pptx-slide-copier>=0.0.5",
+    "pptx-slide-copier>=0.1.0",
 ]
 
 [project.optional-dependencies]
@@ -42,8 +42,11 @@ Repository = "https://github.com/SpringMT/pptx-concatenator"
 [project.scripts]
 pptx-concat = "pptx_concatenator.cli:main"
 
-[tool.setuptools.packages.find]
-include = ["pptx_concatenator*"]
+[tool.setuptools]
+packages = ["pptx_concatenator"]
+
+[tool.setuptools.package-data]
+pptx_concatenator = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
