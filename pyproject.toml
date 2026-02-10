@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=69.5"]
 build-backend = "setuptools.build_meta"
 
 
@@ -9,7 +9,7 @@ version = "0.1.0"
 description = "PowerPoint concatenation library using pptx-slide-copier"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license-files = ["LICEN[CS]E*"]
 authors = [
     {name = "SpringMT", email = "today.is.sky.blue.sky@gmail.com"}
 ]
