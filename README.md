@@ -13,7 +13,7 @@ A Python library for concatenating PowerPoint presentations using [pptx-slide-co
 ## Installation
 
 ```bash
-pip install -e .
+pip install pptx-concatenator
 ```
 
 For development:
@@ -26,7 +26,7 @@ pip install -e ".[dev]"
 
 - Python 3.9+
 - python-pptx >= 0.6.21
-- pptx-slide-copier >= 0.0.5
+- pptx-slide-copier >= 0.1.0
 
 ## Usage
 
@@ -58,7 +58,7 @@ from pptx_concatenator import concat_pptx
 concat_pptx("source.pptx", "target.pptx", "output.pptx")
 ```
 
-### Using the PptxConcatenator Class
+#### Using the PptxConcatenator Class
 
 ```python
 from pptx_concatenator import PptxConcatenator
@@ -74,7 +74,7 @@ result = PptxConcatenator.concat_multiple(
 )
 ```
 
-### Working with Presentation Objects
+#### Working with Presentation Objects
 
 ```python
 from pptx import Presentation
@@ -137,7 +137,7 @@ make format-check
 This project uses GitHub Actions for continuous integration:
 
 - **Lint**: Checks code quality with ruff
-- **Test**: Runs tests on Python 3.8-3.12
+- **Test**: Runs tests on Python 3.9-3.12
 
 ## License
 
