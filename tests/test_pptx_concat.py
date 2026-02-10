@@ -2,10 +2,7 @@
 Unit tests for pptx_concatenator module.
 """
 
-import tempfile
-from pathlib import Path
 
-import pytest
 from pptx import Presentation
 
 from pptx_concatenator import PptxConcatenator, concat_pptx
@@ -61,7 +58,7 @@ class TestPptxConcatenator:
         output_path = tmp_path / "output.pptx"
 
         # Execute concatenation
-        result = PptxConcatenator.concat(src_prs, target_prs, str(output_path))
+        PptxConcatenator.concat(src_prs, target_prs, str(output_path))
 
         # Verify the result
         assert output_path.exists()
@@ -101,7 +98,7 @@ class TestPptxConcatenator:
         target2_prs.save(target2_path)
 
         # Execute concatenation
-        result = PptxConcatenator.concat_multiple(
+        PptxConcatenator.concat_multiple(
             str(src_path),
             [str(target1_path), str(target2_path)],
             str(output_path)
@@ -121,7 +118,7 @@ class TestPptxConcatenator:
         output_path = tmp_path / "output.pptx"
 
         # Execute concatenation
-        result = PptxConcatenator.concat_multiple(
+        PptxConcatenator.concat_multiple(
             src_prs,
             [target1_prs, target2_prs],
             str(output_path)
@@ -158,7 +155,7 @@ class TestPptxConcatenator:
         target_prs.save(target_path)
 
         # Execute concatenation
-        result = PptxConcatenator.concat(src_path, target_path, output_path)
+        PptxConcatenator.concat(src_path, target_path, output_path)
 
         # Verify the result
         assert output_path.exists()
@@ -182,7 +179,7 @@ class TestPptxConcatenator:
         target2_prs = create_test_presentation(1)  # Keep as Presentation object
 
         # Execute concatenation with mixed types
-        result = PptxConcatenator.concat_multiple(
+        PptxConcatenator.concat_multiple(
             str(src_path),  # String path
             [target1_path, target2_prs],  # Path object and Presentation object
             output_path  # Path object
