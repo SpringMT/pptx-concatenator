@@ -1,30 +1,26 @@
-.PHONY: install test lint format clean
+.PHONY: install test test-cov lint format clean
 
 install:
-	pip install -e .
-	pip install -r requirements-dev.txt
+	pip install -e ".[dev]"
 
 test:
 	pytest
 
 test-cov:
-	pytest --cov=pptx_concat --cov-report=html --cov-report=term
+	pytest --cov=pptx_concatenator --cov-report=html --cov-report=term
 
 lint:
-	flake8 pptx_concat.py test_pptx_concat.py
-	mypy pptx_concat.py
+	ruff check pptx_concatenator tests
 
 format:
-	black pptx_concat.py test_pptx_concat.py
-	isort pptx_concat.py test_pptx_concat.py
+	ruff format pptx_concatenator tests
 
 format-check:
-	black --check pptx_concat.py test_pptx_concat.py
-	isort --check pptx_concat.py test_pptx_concat.py
+	ruff format --check pptx_concatenator tests
 
 clean:
 	rm -rf build dist *.egg-info
-	rm -rf __pycache__ .pytest_cache .mypy_cache
+	rm -rf __pycache__ .pytest_cache .ruff_cache
 	rm -rf htmlcov .coverage
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name '*.pyc' -delete

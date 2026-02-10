@@ -15,9 +15,15 @@ A Python library for concatenating PowerPoint presentations using [pptx-slide-co
 pip install -e .
 ```
 
+For development:
+
+```bash
+pip install -e ".[dev]"
+```
+
 ### Requirements
 
-- Python 3.6+
+- Python 3.8+
 - python-pptx >= 0.6.21
 - pptx-slide-copier >= 0.0.5
 
@@ -28,7 +34,7 @@ pip install -e .
 Concatenate two PPTX files:
 
 ```python
-from pptx_concat import concat_pptx
+from pptx_concatenator import concat_pptx
 
 # Simple function to concatenate two PPTX files
 concat_pptx("source.pptx", "target.pptx", "output.pptx")
@@ -37,7 +43,7 @@ concat_pptx("source.pptx", "target.pptx", "output.pptx")
 ### Using the PptxConcatenator Class
 
 ```python
-from pptx_concat import PptxConcatenator
+from pptx_concatenator import PptxConcatenator
 
 # Concatenate two presentations
 result = PptxConcatenator.concat("source.pptx", "target.pptx", "output.pptx")
@@ -54,7 +60,7 @@ result = PptxConcatenator.concat_multiple(
 
 ```python
 from pptx import Presentation
-from pptx_concat import PptxConcatenator
+from pptx_concatenator import PptxConcatenator
 
 # Load presentations
 src_prs = Presentation("source.pptx")
@@ -75,13 +81,6 @@ result.save("output.pptx")
 make install
 ```
 
-Or manually:
-
-```bash
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-```
-
 ### Running Tests
 
 ```bash
@@ -95,7 +94,7 @@ make test-cov
 ### Linting and Formatting
 
 ```bash
-# Run linters
+# Run linter
 make lint
 
 # Format code
@@ -110,8 +109,8 @@ make format-check
 - `make install` - Install package and development dependencies
 - `make test` - Run tests
 - `make test-cov` - Run tests with coverage report
-- `make lint` - Run flake8 and mypy
-- `make format` - Format code with black and isort
+- `make lint` - Run ruff linter
+- `make format` - Format code with ruff
 - `make format-check` - Check formatting without making changes
 - `make clean` - Clean build artifacts and cache files
 
@@ -119,8 +118,8 @@ make format-check
 
 This project uses GitHub Actions for continuous integration:
 
-- **CI**: Runs tests on multiple OS (Ubuntu, macOS, Windows) and Python versions (3.8-3.12)
-- **Lint**: Checks code quality with flake8, black, isort, and mypy
+- **Lint**: Checks code quality with ruff
+- **Test**: Runs tests on Python 3.8-3.12
 
 ## License
 
