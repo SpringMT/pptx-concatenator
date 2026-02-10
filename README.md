@@ -8,6 +8,7 @@ A Python library for concatenating PowerPoint presentations using [pptx-slide-co
 - Preserve formatting, images, and layouts
 - Support for both file paths and Presentation objects
 - Simple and intuitive API
+- Command-line interface for easy usage
 
 ## Installation
 
@@ -29,7 +30,24 @@ pip install -e ".[dev]"
 
 ## Usage
 
-### Basic Usage
+### Command Line Interface
+
+After installation, you can use the `pptx-concat` command to concatenate PPTX files directly from the command line:
+
+```bash
+# Concatenate two presentations
+pptx-concat source.pptx target.pptx -o output.pptx
+
+# Concatenate multiple presentations
+pptx-concat source.pptx file1.pptx file2.pptx file3.pptx -o output.pptx
+
+# Show help
+pptx-concat --help
+```
+
+### Python API
+
+#### Basic Usage
 
 Concatenate two PPTX files:
 
