@@ -11,8 +11,8 @@ from pptx_concatenator import PptxConcatenator, concat_pptx
 class TestPptxConcatenator:
     """Test cases for PptxConcatenator class."""
 
-    @patch('pptx_concatenator.Presentation')
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.Presentation')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_with_file_paths(self, mock_copier, mock_presentation):
         """Test concatenation with file path arguments."""
         # Setup mocks
@@ -32,7 +32,7 @@ class TestPptxConcatenator:
         mock_src.save.assert_called_once_with("output.pptx")
         assert result == mock_src
 
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_with_presentation_objects(self, mock_copier):
         """Test concatenation with Presentation object arguments."""
         # Setup mocks
@@ -49,7 +49,7 @@ class TestPptxConcatenator:
         mock_copier.copy_slide.assert_any_call(mock_target, 1, mock_src)
         assert result == mock_src
 
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_without_output_path(self, mock_copier):
         """Test concatenation without saving to file."""
         # Setup mocks
@@ -64,8 +64,8 @@ class TestPptxConcatenator:
         mock_src.save.assert_not_called()
         assert result == mock_src
 
-    @patch('pptx_concatenator.Presentation')
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.Presentation')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_multiple_with_file_paths(self, mock_copier, mock_presentation):
         """Test concatenation of multiple files."""
         # Setup mocks
@@ -89,7 +89,7 @@ class TestPptxConcatenator:
         mock_src.save.assert_called_once_with("output.pptx")
         assert result == mock_src
 
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_multiple_with_presentation_objects(self, mock_copier):
         """Test concatenation of multiple Presentation objects."""
         # Setup mocks
@@ -110,7 +110,7 @@ class TestPptxConcatenator:
         mock_src.save.assert_not_called()
         assert result == mock_src
 
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_multiple_empty_targets(self, mock_copier):
         """Test concatenation with empty targets list."""
         # Setup mocks
@@ -123,11 +123,11 @@ class TestPptxConcatenator:
         mock_copier.copy_slide.assert_not_called()
         assert result == mock_src
 
-    @patch('pptx_concatenator.SlideCopier')
+    @patch('pptx_concatenator.concatenator.SlideCopier')
     def test_concat_with_pathlib_path(self, mock_copier):
         """Test concatenation with pathlib.Path objects."""
         # Setup mocks
-        with patch('pptx_concatenator.Presentation') as mock_presentation:
+        with patch('pptx_concatenator.concatenator.Presentation') as mock_presentation:
             mock_src = MagicMock()
             mock_target = MagicMock()
             mock_target.slides = [Mock()]
