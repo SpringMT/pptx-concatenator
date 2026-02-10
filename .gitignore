@@ -48,6 +48,9 @@ htmlcov/
 .dmypy.json
 dmypy.json
 
+# ruff
+.ruff_cache/
+
 # OS
 .DS_Store
 Thumbs.db

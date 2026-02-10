@@ -3,10 +3,11 @@ PowerPoint concatenation library using pptx-slide-copier.
 Concatenates multiple PPTX files by appending target slides to source presentation.
 """
 
+from pathlib import Path
+from typing import List, Union
+
 from pptx import Presentation
 from pptx_slide_copier import SlideCopier
-from typing import Union, List
-from pathlib import Path
 
 
 class PptxConcatenator:
@@ -57,8 +58,8 @@ class PptxConcatenator:
 
     @staticmethod
     def concat_multiple(src: Union[str, Path, Presentation],
-                       targets: List[Union[str, Path, Presentation]],
-                       output_path: Union[str, Path] = None) -> Presentation:
+                        targets: List[Union[str, Path, Presentation]],
+                        output_path: Union[str, Path] = None) -> Presentation:
         """
         Concatenate multiple target PPTX files to the end of source PPTX.
 
