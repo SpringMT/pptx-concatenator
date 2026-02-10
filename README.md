@@ -24,7 +24,7 @@ pip install -e ".[dev]"
 
 ### Requirements
 
-- Python 3.8+
+- Python 3.9+
 - python-pptx >= 0.6.21
 - pptx-slide-copier >= 0.0.5
 
