@@ -57,8 +57,8 @@ class PptxConcatenator:
 
     @staticmethod
     def concat_multiple(src: Union[str, Path, Presentation],
-                       targets: List[Union[str, Path, Presentation]],
-                       output_path: Union[str, Path] = None) -> Presentation:
+                        targets: List[Union[str, Path, Presentation]],
+                        output_path: Union[str, Path] = None) -> Presentation:
         """
         Concatenate multiple target PPTX files to the end of source PPTX.
 
